@@ -136,8 +136,7 @@ quick_sort_again(vector<int>& arr, int start_index, int end_index) {
 	quick_sort_again(arr, pivot_index + 1, end_index);
 }
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]) {
 	std::vector<int> v{9,8,7,6,5,4,3,2,1,0};
 	printArray(v);
 	// quick_sort(v, 0, v.size() - 1);
