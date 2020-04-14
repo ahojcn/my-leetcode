@@ -46,8 +46,8 @@ void sort3(int arr[], int n) {
 
 int main() {
     int n = 10 * 1000;
-    // int* arr1 = SortTestHelper::generateRandomArray(n, 0, n);
-    int* arr1 = SortTestHelper::generateNearlyOrderedArray(n, 1);
+    int* arr1 = SortTestHelper::generateRandomArray(n, 0, n);
+    // int* arr1 = SortTestHelper::generateNearlyOrderedArray(n, 1);
     int* arr2 = SortTestHelper::copyIntArray(arr1, n);
     int* arr3 = SortTestHelper::copyIntArray(arr1, n);
     SortTestHelper::testSort("冒泡排序", sort1, arr1, n);

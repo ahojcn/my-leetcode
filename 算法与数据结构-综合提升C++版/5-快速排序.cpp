@@ -1,6 +1,7 @@
 #include "SortTestHelper.h"
 using namespace SortTestHelper;
 
+// 双路快排
 template<typename T>
 int __partition2(T arr[], int l, int r) {
     swap(arr[l], arr[rand() % (r - l + 1) + l]);
@@ -133,15 +134,15 @@ void mergeSort(T arr[], int n) {
 
 int main() {
     int n = 100 * 1000;
-    int* arr1 = generateRandomArray(n, 0, n);
-    // int* arr1 = generateRandomArray(n, 0, 10);
-    // int* arr1 = generateNearlyOrderedArray(n, 10);
+    // int* arr1 = generateRandomArray(n, 0, n);
+    // int* arr1 = generateRandomArray(n, 0, 5);
+    int* arr1 = generateNearlyOrderedArray(n, 10);
     int* arr2 = copyIntArray(arr1, n);
     int* arr3 = copyIntArray(arr1, n);
 
     testSort("归并排序", mergeSort, arr1, n);
-    testSort("快速排序", quickSort, arr2, n);
-    testSort("3路快速排序", quickSort3Ways, arr3, n);
+    testSort("双路快速排序", quickSort, arr2, n);
+    testSort("三路快速排序", quickSort3Ways, arr3, n);
 
     delete[] arr1;
     delete[] arr2;
