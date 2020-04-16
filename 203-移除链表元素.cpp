@@ -33,7 +33,8 @@ public:
 class Solution {
 public:
     ListNode* removeElements(ListNode* head, int val) {
-        if (!head) return nullptr;
+        // 不需要再做判断
+        // if (!head) return nullptr;
 
         ListNode* node = new ListNode(-1);
         node->next = head;
@@ -53,5 +54,17 @@ public:
         head = node->next;
         delete node;
         return head;
+    }
+};
+
+// 3. 递归实现
+class Solution {
+public:
+    ListNode* removeElements(ListNode* head, int val) {
+        if (!head) return head;
+
+        head->next = removeElements(head->next, val);
+
+        return head->val == val ? head->next : head;
     }
 };

@@ -19,3 +19,20 @@ public:
         return pre;
     }
 };
+
+// 2. 其实不用判断 head
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        ListNode* cur = head;
+        ListNode* prev = nullptr;
+        while (cur) {
+            ListNode* tmp = cur->next;
+            cur->next = prev;
+            prev = cur;
+            cur = tmp;
+        }
+
+        return prev;
+    }
+};
