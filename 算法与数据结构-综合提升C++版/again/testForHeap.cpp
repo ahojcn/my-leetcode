@@ -13,6 +13,10 @@ int main () {
 	}
 	mh.testPrintData();
 	// mh.testPrintTree();
+	for (int i = 0; i < 10; ++i) {
+		cout << mh.pop() << " poped" << endl;
+		mh.testPrintData();
+	}
 
 	return 0;
 }

@@ -1,4 +1,5 @@
 #include <cassert>
+#include <cmath>
 #include <iostream>
 
 using namespace std;
@@ -12,8 +13,18 @@ public:
 		m_cap = cap;
 	}
 
-	// TODO : 使用 arr 初始化一个大堆
-	MaxHeap(const int* arr, const int cap) {
+	// heapify, 使用 arr 初始化一个大堆
+	MaxHeap(int* arr, int n) {
+		m_data = new int[n];
+		m_cap = n;
+		for (int i = 0; i < n; ++i) {
+			m_data[i] = arr[i];
+		}
+		m_cnt = n;
+
+		for (int i = (m_cnt - 1 - 1)/2; i >= 0; --i) {
+			__shiftDown(i);
+		}
 	}
 
 	~MaxHeap() {
@@ -24,11 +35,20 @@ public:
 
 	int size() { return m_cnt; }
 
-	// 插入一个元素，并将大堆调整到正常
+	// 插入一个元素
 	void insert(const int item) {
 		assert(m_cnt + 1 <= m_cap);
 		m_data[++m_cnt] = item;
 		__shiftUp(m_cnt);
+	}
+
+	// 删除堆顶元素
+	int pop() {
+		assert(m_cnt >= 0);
+		int ret = m_data[0];
+		swap(m_data[0], m_data[m_cnt--]);
+		__shiftDown(0);
+		return ret;
 	}
 
 	// TEST : 打印 m_data
@@ -103,14 +123,27 @@ public:
     }
 
 private:
+	// 向上调整
 	void __shiftUp(int k) {
-		testPrintTree();
-		cout << "==============" << endl;
+		// testPrintTree();
+		// cout << "==============" << endl;
 		int parent_index = (k - 1) / 2;
 		while (k > 0 && m_data[k] > m_data[parent_index]) {
 			swap(m_data[k], m_data[parent_index]);
 			k = parent_index;
 			parent_index = (k - 1) / 2;
+		}
+	}
+
+	// 向下调整
+	void __shiftDown(int k) {
+		while (k * 2 + 1 <= m_cnt) {
+			int j = k * 2 + 1;
+			if (j + 1 <= m_cnt &&m_data[j] < m_data[j + 1]) ++j;
+			if (m_data[k] >= m_data[j]) break;
+
+			swap(m_data[k], m_data[j]);
+			k = j;
 		}
 	}
 
