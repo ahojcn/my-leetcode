@@ -13,19 +13,19 @@ public:
 		m_cap = cap;
 	}
 
-	// heapify, 使用 arr 初始化一个大堆
-	MaxHeap(int* arr, int n) {
-		m_data = new int[n];
-		m_cap = n;
-		for (int i = 0; i < n; ++i) {
-			m_data[i] = arr[i];
-		}
-		m_cnt = n;
-
-		for (int i = (m_cnt - 1 - 1)/2; i >= 0; --i) {
-			__shiftDown(i);
-		}
+// heapify, 使用 arr 初始化一个大堆
+MaxHeap(int* arr, int n) {
+	m_data = new int[n];
+	m_cap = n;
+	for (int i = 0; i < n; ++i) {
+		m_data[i] = arr[i];
 	}
+	m_cnt = n;
+
+	for (int i = (m_cnt - 1 - 1)/2; i >= 0; --i) {
+		__shiftDown(i);
+	}
+}
 
 	~MaxHeap() {
 		delete[] m_data;
