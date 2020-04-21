@@ -1,0 +1,4 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/ahojcn/Code/my-leet-code/算法与数据结构/UnionFind
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/ahojcn/Code/my-leet-code/算法与数据结构/UnionFind/cmake-build-debug
