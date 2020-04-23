@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/ahojcn/Code/my-leet-code/算法与数据结构/BST/FileOps.h
+string
+-
+iostream
+-
+fstream
+-
+vector
+-
+cassert
+-
+string
+-
+iostream
+-
+fstream
+-
+vector
+-
+
+/Users/ahojcn/Code/my-leet-code/算法与数据结构/BST/SequenceST.h
+iostream
+-
+cassert
+-
+
+/Users/ahojcn/Code/my-leet-code/算法与数据结构/BST/main.cpp
+iostream
+-
+vector
+-
+SequenceST.h
+/Users/ahojcn/Code/my-leet-code/算法与数据结构/BST/SequenceST.h
+FileOps.h
+/Users/ahojcn/Code/my-leet-code/算法与数据结构/BST/FileOps.h
+
