@@ -52,3 +52,19 @@ public:
         }
     }
 };
+// 从后向前这是类似于归并排序中 并 的过程！
+// 下面这种写法也是从后向前，和上面的 3 一样
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        int tail = m+n-1;
+        --n; --m;
+        while (n >= 0) {
+            if (m >= 0 && nums1[m] > nums2[n]) {
+                nums1[tail--] = nums1[m--];
+            } else {
+                nums1[tail--] = nums2[n--];
+            }
+        }
+    }
+};
